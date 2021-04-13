@@ -1,3 +1,14 @@
-<div>
-    Hello user
-</div>
+<html>
+    <head>
+        <%= title %>
+    </head>
+    <body>
+        <div>
+            Hello <%= user.first_name %>
+        </div>
+        <form action="/users/destroy-session/">
+            <input type="submit" value="Sign-Out">
+        </form>
+    </body>
+</html>
+

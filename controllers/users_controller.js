@@ -2,7 +2,7 @@ const User = require('../models/users');
 
 module.exports.home = function(req,res){
     if(req.cookies.user_id){
-        User.findById(req.cookie.user_id,function(err,user){
+        User.findById(req.cookies.user_id,function(err,user){
             if(user){
                 return res.render('home',{
                     title : "User Profile",
@@ -55,26 +55,33 @@ module.exports.create = function(request,response){
 };
 
 module.exports.create_session = function(req,res){
-   User.findOne({
-       email : req.body.email
-   },function(err,user){
-       if(err){
-           console.log("Error",err);
-           return;
-       }
-       // handle user found
-       if(user){
-           // when password doesn't match
-           if(user.password != req.body.password){
-               return res.redirect('back');
-           }
+    User.findOne({
+        email : req.body.email
+    },function(err,user){
+        if(err){
+            console.log("Error",err);
+            return;
+        }
+        // handle user found
+        if(user){
+            // when password doesn't match
+            if(user.password != req.body.password){
+                return res.redirect('back');
+            }
+ 
+            //handle session cookies
+            // console.log(user);
+            res.cookie('user_id',user._id);
+            // console.log(user_id);
+            return res.redirect('/users/home');
+        }else{
+            // handle user not found
+            return res.redirect('back');
+        }
+    })
+}
 
-           //handle session cookies
-           res.cookie('user_id',user.id);
-           return res.redirect('/users/home');
-       }else{
-           // handle user not found
-           return res.redirect('back');
-       }
-   })
+module.exports.destroy_session = function(req,res){
+    res.clearCookie('user_id');
+    return res.redirect('/');
 }
