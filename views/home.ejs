@@ -1,10 +1,15 @@
 <html>
     <head>
-        <%= title %>
+        <title>
+            <%= title %>
+        </title>
+        
+        <link href="/css/form.css" rel="stylesheet">
     </head>
     <body>
         <div>
-            Hello <%= user.first_name %>
+                Hello <%= user.first_name %>
+            
         </div>
         <form action="/users/destroy-session/">
             <input type="submit" value="Sign-Out">
