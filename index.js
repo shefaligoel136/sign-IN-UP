@@ -7,8 +7,6 @@ const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
 const port = 8000;
 
-
-
 // var MongoStore = require("connect-mongo")(session);
 
 app.use(express.static('./assets'));
