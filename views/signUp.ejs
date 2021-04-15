@@ -1,17 +1,46 @@
-<div>
-    <form action="/users/create" method="POST">
+<link rel="stylesheet" href="/css/signed.css">
+<link rel="stylesheet" href="/css/form.css">
 
-        <input type="text" name="first_name" placeholder="First Name" required>
-        <input type="text" name="last_name" placeholder="Last Name" required>
-        <input type="email" name="email" placeholder="Email" required>
-        <input type="password" name="password" placeholder="Password" required>
-        <input type="password" name="confirm_password" placeholder="Confirm Password" required>
-        <input type="date" name="dob" placeholder="Date of Birth" required>
+<section class="left-side">
+    <img src="https://images.pexels.com/photos/3651820/pexels-photo-3651820.jpeg?cs=srgb&dl=pexels-luca-nardone-3651820.jpg&fm=jpg">
+    <p class="about">Sign-up and be a part of our upcoming events <span style="text-decoration: underline;">OR</span> come up with a new innovative idea and organize your own virtual event.</p>
+    <p class="comp-name">TheEvent.com</p>
+</section>
 
-        <input type="submit" value="Sign-Up">
-        <button>
-            Cancel
-        </button>
+<section class="right-side">
 
-    </form>
-</div>
+    <div class=" wel-div">
+        <p class="welcome">
+            Welcome Guest,
+        </p>
+        <p class="welcome-line">
+            Sign Up for TheEvent
+        </p>
+    </div>
+
+    <div class="form-div sign-up">
+        <form action="/users/create" method="POST">
+
+            
+            <input type="text" name="first_name" placeholder="First Name" required>
+
+            
+            <input type="text" name="last_name" placeholder="Last Name" required>
+
+            <label for="email">Email</label>
+            <input type="email" name="email" placeholder="Email" required>
+
+            <label for="password">Password</label>
+            <input type="password" name="password" placeholder="Password" required>
+
+            <label for="confirm_password">Confirm Password</label>
+            <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+
+            <label for="dob">Date of Birth</label>
+            <input type="date" name="dob" placeholder="Date of Birth" required>
+    
+            <input type="submit" value="Sign-Up">
+    
+        </form>
+    </div>
+</section>

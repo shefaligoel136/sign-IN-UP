@@ -1,6 +1,6 @@
-input[type=email], input[type=password], select{
+input[type=email], input[type=password] {
     width: 90%;
-    padding: 23px;
+    padding: 20px !important; 
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
@@ -8,6 +8,24 @@ input[type=email], input[type=password], select{
     margin-bottom: 16px;
     resize: vertical;
     padding-left: 20px;
+  }
+
+.sign-up input[type=email], input[type=password], input[type=date] {
+    width: 90%;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 3px;
+    margin-bottom: 16px;
+    resize: vertical;
+    padding-left: 20px;
+  }
+
+  .sign-up input[type=text]{
+    width: 45%;
+    padding: 15px;
+    margin-bottom: 2%;
   }
   
   input[type=submit] {
@@ -21,6 +39,7 @@ input[type=email], input[type=password], select{
     margin-top: 20px;
     font-size: 25px;
   }
+
   
   input[type=submit]:hover {
     background-color: #bc4639;
@@ -39,3 +58,19 @@ input[type=email], input[type=password], select{
     border-radius: 5px; 
     padding-left: 80px;
   }
+
+  .sign-up{
+      margin-top: 5%;
+  }
+
+  @media only screen and (max-width: 768px){
+      label{
+          display: none;
+      }
+  }
+
+  @media only screen and (max-width: 400px){
+    .sign-up input[type=text]{
+        width: 90%;  
+      }
+}
