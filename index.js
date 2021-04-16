@@ -5,6 +5,8 @@ const db = require('./config/mongoose');
 const session = require('express-session');
 const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
+const googlePassport = require('./config/passport-google-oauth2-strategy');
+
 const port = 8000;
 
 // var MongoStore = require("connect-mongo")(session);

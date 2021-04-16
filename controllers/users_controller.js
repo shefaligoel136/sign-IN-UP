@@ -2,9 +2,13 @@ const { response } = require('express');
 const User = require('../models/users');
 
 module.exports.home = function(req,res){
-    return res.render('home',{
-        title : 'Home Page'
-    });
+    User.find({},function(err,user){
+        return res.render('home',{
+            title : 'Home Page',
+            user : user
+        });
+    })
+    
 }
 // manual auth code
     // if(req.cookies.user_id){
@@ -71,6 +75,10 @@ module.exports.create = function(request,response){
 };
 
 module.exports.create_session = function(req,res){
+    return res.redirect('/users/home');
+}
+
+module.exports.createSession = function(req,res){
     return res.redirect('/users/home');
 }
 // manual auth code
