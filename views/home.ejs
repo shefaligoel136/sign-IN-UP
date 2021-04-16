@@ -1,23 +1,122 @@
+
+
+
+
+
+
+
+		
+		
+<link rel="stylesheet" href="/css/home.css">
+<link rel="stylesheet" href="/css/form.css">
 <html>
     <head>
         <title>
             <%= title %>
         </title>
-        
-        <link href="/css/form.css" rel="stylesheet">
     </head>
     <body>
-        <div>
+
+        <section class="header">
             
+            <div class="hello-user">
+                Welcome <%= user.first_name %>
+            </div>
+
+            <div class="comp-name">
+                <p>TheEvent.com</p>
+            </div>
+            <div class="actions">
+                <div>
+                    <button id="registerEvent" data-bs-toggle="modal" data-bs-target="#eventModal">
+                        Register your event
+                    </button>
+                </div>
+                <form action="/users/destroy-session/">
+                    <button id="sign-out">Sign Out!</button>
+                </form>
+            </div>
+            
+        </section>
+
+          
+        <section id="nav-filter">
+
+        </section>
+        
+        <section id="info">
+            <p>
+                All our upcoming events are listed below.
+            </p>
+        </section>
+
+        <section id="eventList">
+
+            <% for(event of events){ %>
+
+            <div class="card" style="width: 20rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title"><%= event.event_name %></h5>
+                  <p class="card-text"><%= event.about_event %></p>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item"><span class="list-head">Date:  </span> <%=  event.date.getDate()%>  <%= event.date.toLocaleString("default",{month:"short"})%>, <%= event.date.getFullYear()%> %></li>
+                  <li class="list-group-item"><span class="list-head">Time:  </span><%=  event.from_time %> - <%= event.to_time %></li>
+                  <li class="list-group-item"><span class="list-head">Charges:  </span>Rs.<%=  event.fees%></li>
+                  <li class="list-group-item"><span class="list-head">Organized By:  </span><%=  event.organizer_name%></li>
+                </ul>
+                <div class="card-body">
+                  <a href="#" class="card-link">BOOK</a>
+                  <!-- <a href="#" class="card-link">Another link</a> -->
+                </div>
+              </div>
+            <% } %>
+              
+        </section>
+
+
+        <div class="modal fade" id="eventModal" tabindex="-1" aria-labelledby="eventModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="eventModalLabel">Event Registration Form</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body register">
+
+                  <form action="/event/createEvent" method="POST">
+
+                    <label for="organizer_name"> Organizer Name</label>
+                    <input type="text" name="organizer_name" placeholder="eg: xyz abc" required>
+
+                    <label for="event_name"> Event Name</label>
+                    <input type="text" name="event_name" placeholder="eg: Learn something" required>
+
+                    <label for="about_event">About Event</label>
+                    <input type="text" name="about_event" placeholder="What is your event about?" required>
+
+                    <label for="fees">Fees</label>
+                    <input type="number" name="fees" placeholder="Charges for attending" required>
+
+                    <label for="from_time">From Time</label>
+                    <input type="time" name="from_time" placeholder="At what time event will take place" required>
+
+                    <label for="to_time">To Time</label>
+                    <input type="time" name="to_time" placeholder="Till what time event Extend" required>
+
+                    <label for="date">Date</label>
+                    <input type="date" name="date" placeholder="What will be the date?" required>
+
+                    
+                    <input type="submit" value="Register">
+                  </form>
+                </div>
                 
-                Hello! <%= users.first_name %>
-            
-                
-            
+              </div>
+            </div>
         </div>
-        <form action="/users/destroy-session/">
-            <input type="submit" value="Sign-Out">
-        </form>
+
     </body>
 </html>
 
