@@ -1,34 +1,34 @@
 const mongoose = require('mongoose');
 
 const eventSchema = new mongoose.Schema({
-    oraganizer_name:{
+    organizer_name:{
         type: String,
-        required: true
+        // required: true
     },
     event_name:{
         type: String,
-        required: true
+        // required: true
     },
     about_event:{ 
         type: String,
-        required: true,
+        // required: true,
     },
     fees:{
         type: String,
-        required: true
+        // required: true
     },
-    timings:{
+    from_time:{
         type: String,
-        required: true
+        // required: true
+    },
+    to_time:{
+        type: String,
+        // required: true
     },
     date:{
         type: Date,
-        required: true
-    },
-    duration:{
-        type: String,
-        required: true
-    }   
+        // required: true
+    } 
 },{
     timestamps : true
 });

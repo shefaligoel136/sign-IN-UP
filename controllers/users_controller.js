@@ -1,15 +1,21 @@
 const User = require('../models/users');
+const EventSchema = require('../models/registeredEvents');
+
 
 module.exports.home = function(req,res){
     if(req.cookies.user_id){
         User.findById(req.cookies.user_id,function(err,user){
             if(user){
-                return res.render('home',{
-                    title : "User Profile",
-                    user : user
-                });
+
+                EventSchema.find({},function(err,events){
+                    return res.render('home',{
+                        title : "User Profile",
+                        user : user,
+                        events : events
+                    });
+                }).sort('-createdAt');              
             }
-            return res.redirect('/');
+            // return res.redirect('/');
         });
     }else{
         return res.redirect('/');
@@ -18,6 +24,7 @@ module.exports.home = function(req,res){
 
 module.exports.signUp = function(req,res){
     if(!req.cookies.user_id){
+        // req.flash('success',"Signed Up successfully");
         return res.render('signUp');
     }else{
         return res.redirect('home');
@@ -27,6 +34,7 @@ module.exports.signUp = function(req,res){
 
 module.exports.signIn = function(req,res){
     if(!req.cookies.user_id){
+        // req.flash('success',"Signed In successfully");
         return res.render('signIn');
     }else{
         return res.redirect('home');

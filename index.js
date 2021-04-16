@@ -2,17 +2,21 @@ const express = require('express');
 const app = express();
 const cookieParser = require('cookie-parser');
 const db = require('./config/mongoose');
-// const session = require('express-session');
-// const passport = require('passport');
+const session = require('express-session');
+const passport = require('passport');
 // const passportLocal = require('./config/passport-local-strategy');
 const port = 8000;
 
 // var MongoStore = require("connect-mongo")(session);
 
+
 app.use(express.static('./assets'));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+
+// const flash = require('connect-flash');
+// const middleware = require('./config/middleware');
 
 const expressLayouts = require('express-ejs-layouts');
 app.use(expressLayouts);
@@ -23,6 +27,9 @@ app.set('layout extractScripts', true);
 // setting up views
 app.set('view engine' , 'ejs');
 app.set('views', './views');
+
+// app.use(flash());
+// app.use(middleware.setFlash);
 
 app.use('/',require('./routes/index'));
 
