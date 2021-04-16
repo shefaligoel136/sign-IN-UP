@@ -17,11 +17,20 @@ module.exports.home = function(req,res){
 }
 
 module.exports.signUp = function(req,res){
-    return res.render('signUp');
+    if(!req.cookies.user_id){
+        return res.render('signUp');
+    }else{
+        return res.redirect('home');
+    }
+    
 }
 
 module.exports.signIn = function(req,res){
-    return res.render('signIn');
+    if(!req.cookies.user_id){
+        return res.render('signIn');
+    }else{
+        return res.redirect('home');
+    }
 }
 
 module.exports.create = function(request,response){

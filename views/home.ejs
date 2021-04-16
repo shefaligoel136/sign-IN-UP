@@ -1,14 +1,81 @@
+<link rel="stylesheet" href="/css/home.css">
+
 <html>
     <head>
-        <%= title %>
+        <title>
+            <%= title %>
+        </title>
     </head>
     <body>
-        <div>
-            Hello <%= user.first_name %>
-        </div>
-        <form action="/users/destroy-session/">
-            <input type="submit" value="Sign-Out">
-        </form>
+
+        <section class="header">
+            
+            <div class="hello-user">
+                Welcome <%= user.first_name %>
+            </div>
+
+            <div class="comp-name">
+                <p>TheEvent.com</p>
+            </div>
+            <div class="actions">
+                <div>
+                    <button id="registerEvent">
+                        Register your event
+                    </button>
+                </div>
+                <form action="/users/destroy-session/">
+                    <button id="sign-out">Sign Out!</button>
+                </form>
+            </div>
+            
+        </section>
+
+        <section id="nav-filter">
+
+        </section>
+        
+        <section id="info">
+            <p>
+                All our upcoming events are listed below.
+            </p>
+        </section>
+
+        <section id="eventList">
+            <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">An item</li>
+                  <li class="list-group-item">A second item</li>
+                  <li class="list-group-item">A third item</li>
+                </ul>
+                <div class="card-body">
+                  <a href="#" class="card-link">Card link</a>
+                  <a href="#" class="card-link">Another link</a>
+                </div>
+              </div>
+
+              <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">An item</li>
+                  <li class="list-group-item">A second item</li>
+                  <li class="list-group-item">A third item</li>
+                </ul>
+                <div class="card-body">
+                  <a href="#" class="card-link">Card link</a>
+                  <a href="#" class="card-link">Another link</a>
+                </div>
+              </div>
+        </section>
+
     </body>
 </html>
 
