@@ -1,12 +1,4 @@
 
-
-
-
-
-
-
-		
-		
 <link rel="stylesheet" href="/css/home.css">
 <link rel="stylesheet" href="/css/form.css">
 <html>
@@ -20,7 +12,9 @@
         <section class="header">
             
             <div class="hello-user">
-                Welcome <%= user.first_name %>
+              
+                Welcome 
+              
             </div>
 
             <div class="comp-name">
@@ -52,26 +46,7 @@
 
         <section id="eventList">
 
-            <% for(event of events){ %>
-
-            <div class="card" style="width: 20rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title"><%= event.event_name %></h5>
-                  <p class="card-text"><%= event.about_event %></p>
-                </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item"><span class="list-head">Date:  </span> <%=  event.date.getDate()%>  <%= event.date.toLocaleString("default",{month:"short"})%>, <%= event.date.getFullYear()%> %></li>
-                  <li class="list-group-item"><span class="list-head">Time:  </span><%=  event.from_time %> - <%= event.to_time %></li>
-                  <li class="list-group-item"><span class="list-head">Charges:  </span>Rs.<%=  event.fees%></li>
-                  <li class="list-group-item"><span class="list-head">Organized By:  </span><%=  event.organizer_name%></li>
-                </ul>
-                <div class="card-body">
-                  <a href="#" class="card-link">BOOK</a>
-                  <!-- <a href="#" class="card-link">Another link</a> -->
-                </div>
-              </div>
-            <% } %>
+            
               
         </section>
 
