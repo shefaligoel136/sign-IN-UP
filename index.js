@@ -9,6 +9,8 @@ const googlePassport = require('./config/passport-google-oauth2-strategy');
 
 const port = 8000;
 
+app.use('/uploads',express.static(__dirname+'/uploads'));
+
 // var MongoStore = require("connect-mongo")(session);
 
 app.use(express.static('./assets'));
