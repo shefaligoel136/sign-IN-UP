@@ -1,12 +1,16 @@
 const { response } = require('express');
 const User = require('../models/users');
+const EventSchema = require('../models/registeredEvents');
 
 module.exports.home = function(req,res){
     User.find({},function(err,user){
-        return res.render('home',{
-            title : 'Home Page',
-            user : user
-        });
+        EventSchema.find({},function(err,events){
+            return res.render('home',{
+                title : "User Profile",
+                user : user,
+                events : events
+            });
+        }).sort('-createdAt');   
     })
     
 }
@@ -111,6 +115,8 @@ module.exports.createSession = function(req,res){
 
 
 module.exports.destroy_session = function(req,res){
-    res.clearCookie('user_id');
+    // res.clearCookie('user_id');
+    // return res.redirect('/');
+    req.logout();
     return res.redirect('/');
 }
