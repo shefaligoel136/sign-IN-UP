@@ -46,7 +46,7 @@
             <% for(event of events){ %>
 
             <div class="card" style="width: 20rem;">
-                <img src="..." class="card-img-top" alt="...">
+                <img src="<%= event.poster %>" class="card-img-top" alt="<%= event.event_name%> 's Poster">
                 <div class="card-body">
                   <h5 class="card-title"><%= event.event_name %></h5>
                   <p class="card-text"><%= event.about_event %></p>
@@ -76,7 +76,7 @@
                 </div>
                 <div class="modal-body register">
 
-                  <form action="/event/createEvent" method="POST">
+                  <form action="/event/createEvent" method="POST" enctype="multipart/form-data">
 
                     <label for="organizer_name"> Organizer Name</label>
                     <input type="text" name="organizer_name" placeholder="eg: xyz abc" required>
@@ -99,7 +99,9 @@
                     <label for="date">Date</label>
                     <input type="date" name="date" placeholder="What will be the date?" required>
 
-                    
+                    <label for="poster">Event Poster</label>
+                    <input type="file" name="poster">
+
                     <input type="submit" value="Register">
                   </form>
                 </div>

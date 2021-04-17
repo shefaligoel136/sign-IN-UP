@@ -12,7 +12,7 @@ input[type=email], input[type=password] {
 
 .sign-up input[type=email], input[type=password], input[type=date] {
     width: 90%;
-    padding: 15px;
+    padding: 13px;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
@@ -24,11 +24,11 @@ input[type=email], input[type=password] {
 
   .sign-up input[type=text]{
     width: 45%;
-    padding: 15px;
+    padding: 10px;
     margin-bottom: 2%;
   }
 
-  .register input[type=text], input[type=number], input[type=date],input[type=time] {
+  .register input[type=text], input[type=number], input[type=date],input[type=time],input[type=file] {
     width: 90%;
     padding: 10px;
     border: 1px solid #ccc;
